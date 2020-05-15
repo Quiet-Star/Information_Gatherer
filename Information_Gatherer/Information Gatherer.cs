@@ -43,6 +43,7 @@ namespace Information_Gatherer
             f2.checkBox5.Checked = Properties.Settings.Default.checkBox5;
             f2.checkBox6.Checked = Properties.Settings.Default.checkBox6;
             f2.checkBox7.Checked = Properties.Settings.Default.checkBox7;
+            f2.checkBox8.Checked = Properties.Settings.Default.checkBox8;
 
             this.Location = new Point(Properties.Settings.Default.PX, Properties.Settings.Default.PY);
 
@@ -74,17 +75,13 @@ namespace Information_Gatherer
             Properties.Settings.Default.Save();
         }
 
-        private async void button1_ClickAsync(object sender, EventArgs e)
+        private void button1_ClickAsync(object sender, EventArgs e)
         {
             if (button1.Text == "Check if IP Matches What's My IP")
             {
                 richTextBox1.Text = "Gathering Information";
-                await Task.Delay(500);
                 button1.Text = "Terminate Information";
                 button1.BackColor = Color.Red;
-                await Task.Delay(100);
-                //This IP check is giving issues (freezing the app) so I decided to remove this check
-                //string externalip = new WebClient().DownloadString("http://icanhazip.com");
 
                 IPHostEntry host;
                 string localIP = "?";
@@ -105,17 +102,15 @@ namespace Information_Gatherer
                     direction = stream.ReadToEnd();
                 }
 
-                //Search for the ip in the html
                 int first = direction.IndexOf("Address: ") + 9;
                 int last = direction.LastIndexOf("</body>");
                 direction = direction.Substring(first, last - first);
 
-                richTextBox1.Text = "Your Local IP: "+localIP+"\nPublic IP: "+direction+"\n\n"+"If your IP is a IPv6 then check 'Whats my IP *If IPV6*' and none of the others!\nWARNING: Do not give your public or local IP to anyone!";
+                richTextBox1.Text = "Your Public IP: "+direction+"\nYour Local IP: "+localIP+"\n\n"+"If your IP is a IPv6 then check 'Whats my IP *If IPV6*' and none of the others!\nWARNING: Do not give your public or local IP to anyone!";
             }
             else if (button1.Text == "Terminate Information")
             {
                 richTextBox1.Text = "Connection closing!";
-                await Task.Delay(500);
                 button1.Text = "Check if IP Matches What's My IP";
                 richTextBox1.Text = "This app is called 'Information Gatherer' it is intended to give you your current IP (with or without a VPN) to give you a accurate reading of if you are or not leaking VPN information that can expose your real IP.\n\n* All Data is Terminated automatically *including user settings\n* Nothing is stored information is always Terminated - no need to manually terminate app will auto terminate on exit if connected.";
                 button1.BackColor = Color.Green;
@@ -174,6 +169,57 @@ namespace Information_Gatherer
         {
             Settings f2 = new Settings(this);
             f2.ShowDialog();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPing_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            
+        }
+
+        private async void button9_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to exit?", "EXIT", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Yes)
+            {
+                if (button1.Text == "Terminate Information")
+                {
+                    richTextBox1.Text = "App Exiting - Please Wait\n\nInformation Closing";
+                    await Task.Delay(250);
+                    button1.BackColor = Color.Green;
+                    button1.Text = "Check if IP Matches What's My IP";
+                    await Task.Delay(250);
+                    Application.Exit();
+                }
+                if (button1.Text == "Check if IP Matches What's My IP")
+                {
+                    Application.Exit();
+                }
+            if (dialogResult == DialogResult.No)
+                {
+
+                }
+            }
+        }
+
+        private async void button10_Click(object sender, EventArgs e)
+        {
+            await Task.Delay(50);
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

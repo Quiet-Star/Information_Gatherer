@@ -14,3 +14,12 @@ C:\Users\tyler\source\repos\PutinVPN\PutinVPN\obj\Release\en\Information Gathere
 C:\Users\tyler\source\repos\PutinVPN\PutinVPN\obj\Release\Information Gatherer.exe
 C:\Users\tyler\source\repos\PutinVPN\PutinVPN\obj\Release\Information Gatherer.pdb
 C:\Users\tyler\source\repos\PutinVPN\PutinVPN\obj\Release\Information_Gatherer.Settings.resources
+C:\Users\tyler\source\repos\PutinVPN\PutinVPN\bin\Information Gatherer\Information Gatherer.exe.config
+C:\Users\tyler\source\repos\PutinVPN\PutinVPN\bin\Information Gatherer\Information Gatherer.exe
+C:\Users\tyler\source\repos\PutinVPN\PutinVPN\bin\Information Gatherer\Information Gatherer.pdb
+C:\Users\tyler\source\repos\PutinVPN\PutinVPN\bin\Information Gatherer\en\Information Gatherer.resources.dll
+C:\Users\tyler\source\repos\PutinVPN\PutinVPN\bin\Information Gatherer\Information Gatherer.exe.manifest
+C:\Users\tyler\source\repos\PutinVPN\PutinVPN\bin\Information Gatherer\Information Gatherer.application
+C:\Users\tyler\source\repos\PutinVPN\PutinVPN\obj\Release\Information Gatherer.TrustInfo.xml
+C:\Users\tyler\source\repos\PutinVPN\PutinVPN\obj\Release\Information Gatherer.exe.manifest
+C:\Users\tyler\source\repos\PutinVPN\PutinVPN\obj\Release\Information Gatherer.application

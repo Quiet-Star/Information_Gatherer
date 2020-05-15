@@ -33,7 +33,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -46,6 +45,10 @@
             this.button7 = new System.Windows.Forms.Button();
             this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.button8 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -56,7 +59,7 @@
             this.button1.FlatAppearance.BorderSize = 2;
             this.button1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(327, 139);
+            this.button1.Location = new System.Drawing.Point(327, 160);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(153, 103);
             this.button1.TabIndex = 0;
@@ -74,12 +77,6 @@
             this.contextMenuStrip2.Name = "contextMenuStrip2";
             this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
             // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "Information Gatherer";
-            this.notifyIcon1.Visible = true;
-            // 
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -88,7 +85,7 @@
             this.button2.FlatAppearance.BorderSize = 2;
             this.button2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button2.Location = new System.Drawing.Point(169, 141);
+            this.button2.Location = new System.Drawing.Point(169, 162);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(150, 50);
             this.button2.TabIndex = 4;
@@ -104,7 +101,7 @@
             this.button3.FlatAppearance.BorderSize = 2;
             this.button3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
             this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button3.Location = new System.Drawing.Point(169, 191);
+            this.button3.Location = new System.Drawing.Point(169, 212);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(150, 50);
             this.button3.TabIndex = 5;
@@ -120,7 +117,7 @@
             this.button4.FlatAppearance.BorderSize = 2;
             this.button4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
             this.button4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button4.Location = new System.Drawing.Point(13, 141);
+            this.button4.Location = new System.Drawing.Point(13, 162);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(150, 50);
             this.button4.TabIndex = 6;
@@ -136,7 +133,7 @@
             this.button5.FlatAppearance.BorderSize = 2;
             this.button5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
             this.button5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button5.Location = new System.Drawing.Point(13, 191);
+            this.button5.Location = new System.Drawing.Point(13, 212);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(150, 50);
             this.button5.TabIndex = 7;
@@ -155,11 +152,11 @@
             this.richTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.richTextBox1.Font = new System.Drawing.Font("Cambria", 9.75F);
             this.richTextBox1.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.richTextBox1.Location = new System.Drawing.Point(12, 12);
+            this.richTextBox1.Location = new System.Drawing.Point(12, 44);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
             this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.richTextBox1.Size = new System.Drawing.Size(470, 123);
+            this.richTextBox1.Size = new System.Drawing.Size(470, 111);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
@@ -168,33 +165,35 @@
             // 
             this.lblPing.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblPing.AutoSize = true;
-            this.lblPing.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblPing.BackColor = System.Drawing.Color.Transparent;
             this.lblPing.Font = new System.Drawing.Font("Calibri", 9.75F);
             this.lblPing.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblPing.Location = new System.Drawing.Point(10, 391);
+            this.lblPing.Location = new System.Drawing.Point(10, 399);
             this.lblPing.Name = "lblPing";
             this.lblPing.Size = new System.Drawing.Size(110, 15);
             this.lblPing.TabIndex = 10;
             this.lblPing.Text = "Ping is Initializing!";
+            this.lblPing.Click += new System.EventHandler(this.lblPing_Click);
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
+            this.timer1.Interval = 5000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Italic);
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Location = new System.Drawing.Point(10, 415);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 15);
+            this.label1.Size = new System.Drawing.Size(191, 15);
             this.label1.TabIndex = 11;
-            this.label1.Text = "Ping will update every second";
+            this.label1.Text = "Ping will update every five seconds";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button6
             // 
@@ -205,9 +204,9 @@
             this.button6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
             this.button6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button6.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.button6.Location = new System.Drawing.Point(13, 321);
+            this.button6.Location = new System.Drawing.Point(278, 372);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(59, 50);
+            this.button6.Size = new System.Drawing.Size(98, 57);
             this.button6.TabIndex = 13;
             this.button6.Text = "Help";
             this.button6.UseVisualStyleBackColor = false;
@@ -222,9 +221,9 @@
             this.button7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
             this.button7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button7.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.button7.Location = new System.Drawing.Point(13, 256);
+            this.button7.Location = new System.Drawing.Point(382, 372);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(85, 59);
+            this.button7.Size = new System.Drawing.Size(98, 58);
             this.button7.TabIndex = 14;
             this.button7.Text = "Whats a DNS leak?";
             this.button7.UseVisualStyleBackColor = false;
@@ -238,21 +237,81 @@
             // button8
             // 
             this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button8.BackColor = System.Drawing.Color.Black;
+            this.button8.BackColor = System.Drawing.Color.DimGray;
             this.button8.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button8.FlatAppearance.BorderSize = 5;
             this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
             this.button8.ForeColor = System.Drawing.Color.White;
+            this.button8.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button8.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.button8.Location = new System.Drawing.Point(348, 404);
+            this.button8.Location = new System.Drawing.Point(12, 12);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(132, 26);
+            this.button8.Size = new System.Drawing.Size(75, 26);
             this.button8.TabIndex = 27;
             this.button8.Text = "Settings";
             this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Calibri", 9.75F);
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.Location = new System.Drawing.Point(275, 354);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(117, 15);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "IP: 000.000.000.000";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 1000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // button9
+            // 
+            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button9.BackColor = System.Drawing.Color.DimGray;
+            this.button9.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button9.FlatAppearance.BorderSize = 5;
+            this.button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            this.button9.ForeColor = System.Drawing.Color.White;
+            this.button9.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button9.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.button9.Location = new System.Drawing.Point(399, 12);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(81, 26);
+            this.button9.TabIndex = 29;
+            this.button9.Text = "Exit";
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button10
+            // 
+            this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button10.BackColor = System.Drawing.Color.DimGray;
+            this.button10.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button10.FlatAppearance.BorderSize = 5;
+            this.button10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            this.button10.ForeColor = System.Drawing.Color.White;
+            this.button10.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button10.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.button10.Location = new System.Drawing.Point(312, 12);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(81, 26);
+            this.button10.TabIndex = 30;
+            this.button10.Text = "Minimize";
+            this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // Information_Gatherer
             // 
@@ -262,8 +321,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.Black;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(494, 441);
+            this.ControlBox = false;
+            this.Controls.Add(this.button10);
+            this.Controls.Add(this.button9);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
@@ -276,7 +340,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -296,8 +360,7 @@
         #endregion
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
-        private System.Windows.Forms.Timer timer1;
+        //private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip3;
         public System.Windows.Forms.Button button1;
         public System.Windows.Forms.Button button2;
@@ -310,6 +373,11 @@
         public System.Windows.Forms.Button button6;
         public System.Windows.Forms.Button button7;
         public System.Windows.Forms.Button button8;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.Timer timer2;
+        public System.Windows.Forms.Button button9;
+        public System.Windows.Forms.Button button10;
     }
 }
 

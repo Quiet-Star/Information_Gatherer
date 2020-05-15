@@ -154,5 +154,17 @@ namespace Information_Gatherer.Properties {
                 this["PY2"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool checkBox8 {
+            get {
+                return ((bool)(this["checkBox8"]));
+            }
+            set {
+                this["checkBox8"] = value;
+            }
+        }
     }
 }

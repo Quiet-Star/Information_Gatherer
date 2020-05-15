@@ -1,12 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Net.Sockets;
+using System.Runtime.InteropServices;
+using System.Net.NetworkInformation;
+using Information_Gatherer.Properties;
+using System.Data.SqlTypes;
 
 namespace Information_Gatherer
 {
@@ -28,6 +30,7 @@ namespace Information_Gatherer
             checkBox5.Checked = Properties.Settings.Default.checkBox5;
             checkBox6.Checked = Properties.Settings.Default.checkBox6;
             checkBox7.Checked = Properties.Settings.Default.checkBox7;
+            checkBox8.Checked = Properties.Settings.Default.checkBox8;
         }
 
         private void Settings_Form_FormClosing(object sender, FormClosingEventArgs e)
@@ -39,6 +42,7 @@ namespace Information_Gatherer
             Properties.Settings.Default.checkBox5 = checkBox5.Checked;
             Properties.Settings.Default.checkBox6 = checkBox6.Checked;
             Properties.Settings.Default.checkBox7 = checkBox7.Checked;
+            Properties.Settings.Default.checkBox8 = checkBox8.Checked;
 
             Properties.Settings.Default.Save();
         }
@@ -113,7 +117,7 @@ namespace Information_Gatherer
             {
                 f1.button7.Enabled = false;
             }
-            else if (checkBox5.Checked == false)
+            if (checkBox5.Checked == false)
             {
                 f1.button7.Enabled = true;
             }
@@ -144,7 +148,7 @@ namespace Information_Gatherer
                 this.f1.label1.ForeColor = Color.Black;
                 this.f1.label1.BackColor = Color.Aqua;
             }
-            else if (checkBox6.Checked == false)
+            if (checkBox6.Checked == false)
             {
                 this.BackColor = Color.Black;
                 this.f1.BackColor = Color.Black;
@@ -177,7 +181,7 @@ namespace Information_Gatherer
                 checkBox6.Visible = false;
                 checkBox7.Location = new Point(179, 317);
             }
-            else if (checkBox7.Checked == false)
+            if (checkBox7.Checked == false)
             {
                 checkBox6.Enabled = true;
                 checkBox6.Visible = true;
@@ -193,7 +197,7 @@ namespace Information_Gatherer
                 f1.button6.Enabled = false;
                 f1.button6.Visible = false;
             }
-            else if (checkBox4.Checked == false)
+            if (checkBox4.Checked == false)
             {
                 f1.button6.Enabled = true;
                 f1.button6.Visible = true;
@@ -208,7 +212,7 @@ namespace Information_Gatherer
                 f1.button7.Enabled = false;
                 f1.button7.Visible = false;
             }
-            else if (checkBox5.Checked == false)
+            if (checkBox5.Checked == false)
             {
                 f1.button7.Enabled = true;
                 f1.button7.Visible = true;
@@ -219,7 +223,7 @@ namespace Information_Gatherer
         {
             if (checkBox6.Checked == true)
             {
-                this.f1.BackColor = Color.Coral;
+                //this.f1.BackColor = Color.Coral;
                 this.BackColor = Color.Coral;
                 this.checkBox1.ForeColor = Color.Black;
                 this.checkBox2.ForeColor = Color.Black;
@@ -228,23 +232,27 @@ namespace Information_Gatherer
                 this.checkBox5.ForeColor = Color.Black;
                 this.checkBox6.ForeColor = Color.Black;
                 this.checkBox7.ForeColor = Color.Black;
+                this.checkBox8.ForeColor = Color.Black;
                 this.f1.button2.BackColor = Color.White;
                 this.f1.button3.BackColor = Color.White;
                 this.f1.button4.BackColor = Color.White;
                 this.f1.button5.BackColor = Color.White;
                 this.f1.button6.BackColor = Color.White;
                 this.f1.button7.BackColor = Color.White;
-                this.f1.button8.BackColor = Color.Coral;
+                this.f1.button8.BackColor = Color.White;
+                this.f1.button9.BackColor = Color.White;
+                this.f1.button10.BackColor = Color.White;
                 this.f1.button8.ForeColor = Color.Black;
+                this.f1.button9.ForeColor = Color.Black;
+                this.f1.button10.ForeColor = Color.Black;
                 this.f1.richTextBox1.BackColor = Color.White;
-                this.f1.lblPing.ForeColor = Color.Black;
-                this.f1.lblPing.BackColor = Color.Coral;
-                this.f1.label1.ForeColor = Color.Black;
-                this.f1.label1.BackColor = Color.Coral;
+                this.f1.lblPing.ForeColor = Color.Coral;
+                this.f1.label1.ForeColor = Color.Coral;
+                this.f1.label2.ForeColor = Color.Coral;
             }
-            else if (checkBox6.Checked == false)
+            if (checkBox6.Checked == false)
             {
-                this.f1.BackColor = Color.Black;
+                //this.f1.BackColor = Color.Black;
                 this.BackColor = Color.Black;
                 this.checkBox1.ForeColor = Color.White;
                 this.checkBox2.ForeColor = Color.White;
@@ -253,19 +261,24 @@ namespace Information_Gatherer
                 this.checkBox5.ForeColor = Color.White;
                 this.checkBox6.ForeColor = Color.White;
                 this.checkBox7.ForeColor = Color.White;
+                this.checkBox8.ForeColor = Color.White;
                 this.f1.button2.BackColor = Color.DimGray;
                 this.f1.button3.BackColor = Color.DimGray;
                 this.f1.button4.BackColor = Color.DimGray;
                 this.f1.button5.BackColor = Color.DimGray;
                 this.f1.button6.BackColor = Color.DimGray;
                 this.f1.button7.BackColor = Color.DimGray;
-                this.f1.button8.BackColor = Color.Black;
+                this.f1.button8.BackColor = Color.DimGray;
+                this.f1.button9.BackColor = Color.DimGray;
+                this.f1.button10.BackColor = Color.DimGray;
                 this.f1.button8.ForeColor = Color.White;
+                this.f1.button9.ForeColor = Color.White;
+                this.f1.button10.ForeColor = Color.White;
                 this.f1.lblPing.ForeColor = Color.DimGray;
                 this.f1.richTextBox1.BackColor = Color.DimGray;
-                this.f1.lblPing.BackColor = Color.Black;
+                this.f1.lblPing.ForeColor = Color.White;
                 this.f1.label1.ForeColor = Color.White;
-                this.f1.label1.BackColor = Color.Black;
+                this.f1.label2.ForeColor = Color.White;
             }
         }
 
@@ -275,7 +288,7 @@ namespace Information_Gatherer
             {
                 f1.button1.Enabled = false;
             }
-            else if (checkBox1.Checked == false)
+            if (checkBox1.Checked == false)
             {
                 f1.button1.Enabled = true;
             }
@@ -292,7 +305,7 @@ namespace Information_Gatherer
                 f1.button4.Location = new Point(169, 141);
                 f1.button5.Location = new Point(169, 191);
             }
-            else if (checkBox2.Checked == false)
+            if (checkBox2.Checked == false)
             {
                 f1.button2.Enabled = true;
                 f1.button3.Enabled = true;
@@ -312,7 +325,7 @@ namespace Information_Gatherer
                 f1.button4.Visible = false;
                 f1.button5.Visible = false;
             }
-            else if (checkBox3.Checked == false)
+            if (checkBox3.Checked == false)
             {
                 f1.button4.Enabled = true;
                 f1.button5.Enabled = true;
@@ -329,11 +342,40 @@ namespace Information_Gatherer
                 checkBox6.Visible = false;
                 checkBox7.Location = new Point(8, 12);
             }
-            else if (checkBox7.Checked == false)
+            if (checkBox7.Checked == false)
             {
                 checkBox6.Enabled = true;
                 checkBox6.Visible = true;
-                checkBox7.Location = new Point(101, 73);
+                checkBox7.Location = new Point(8, 68);
+            }
+        }
+
+        private void checkBox8_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox8.Checked == false)
+            {
+                f1.timer2.Enabled = false;
+                f1.label2.Text = "IP: 000.000.000.000";
+            }
+            if (checkBox8.Checked == true)
+            {
+                f1.timer2.Enabled = true;
+                f1.label2.Enabled = true;
+                f1.label2.Visible = true;
+                String direction = "";
+                WebRequest request = WebRequest.Create("http://checkip.dyndns.org/");
+                using (WebResponse response = request.GetResponse())
+                using (StreamReader stream = new StreamReader(response.GetResponseStream()))
+                {
+                    direction = stream.ReadToEnd();
+                }
+
+                //Search for the ip in the html
+                int first = direction.IndexOf("Address: ") + 9;
+                int last = direction.LastIndexOf("</body>");
+                direction = direction.Substring(first, last - first);
+
+                f1.label2.Text = "IP: " + direction;
             }
         }
     }
