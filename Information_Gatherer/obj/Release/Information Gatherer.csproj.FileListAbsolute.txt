@@ -1,0 +1,16 @@
+C:\Users\tyler\source\repos\PutinVPN\PutinVPN\bin\Release\Information Gatherer.exe.config
+C:\Users\tyler\source\repos\PutinVPN\PutinVPN\bin\Release\Information Gatherer.exe
+C:\Users\tyler\source\repos\PutinVPN\PutinVPN\bin\Release\Information Gatherer.pdb
+C:\Users\tyler\source\repos\PutinVPN\PutinVPN\bin\Release\en\Information Gatherer.resources.dll
+C:\Users\tyler\source\repos\PutinVPN\PutinVPN\obj\Release\Information Gatherer.csprojAssemblyReference.cache
+C:\Users\tyler\source\repos\PutinVPN\PutinVPN\obj\Release\Information_Gatherer.Form2.resources
+C:\Users\tyler\source\repos\PutinVPN\PutinVPN\obj\Release\Information_Gatherer.Form3.resources
+C:\Users\tyler\source\repos\PutinVPN\PutinVPN\obj\Release\Information_Gatherer.Information_Gatherer.resources
+C:\Users\tyler\source\repos\PutinVPN\PutinVPN\obj\Release\Information_Gatherer.Properties.Resources.resources
+C:\Users\tyler\source\repos\PutinVPN\PutinVPN\obj\Release\Information_Gatherer.Information_Gatherer.en.resources
+C:\Users\tyler\source\repos\PutinVPN\PutinVPN\obj\Release\Information Gatherer.csproj.GenerateResource.cache
+C:\Users\tyler\source\repos\PutinVPN\PutinVPN\obj\Release\Information Gatherer.csproj.CoreCompileInputs.cache
+C:\Users\tyler\source\repos\PutinVPN\PutinVPN\obj\Release\en\Information Gatherer.resources.dll
+C:\Users\tyler\source\repos\PutinVPN\PutinVPN\obj\Release\Information Gatherer.exe
+C:\Users\tyler\source\repos\PutinVPN\PutinVPN\obj\Release\Information Gatherer.pdb
+C:\Users\tyler\source\repos\PutinVPN\PutinVPN\obj\Release\Information_Gatherer.Settings.resources
