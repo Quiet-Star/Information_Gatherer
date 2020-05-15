@@ -83,7 +83,8 @@ namespace Information_Gatherer
                 button1.Text = "Terminate Information";
                 button1.BackColor = Color.Red;
                 await Task.Delay(100);
-                string externalip = new WebClient().DownloadString("http://icanhazip.com");
+                //This IP check is giving issues (freezing the app) so I decided to remove this check
+                //string externalip = new WebClient().DownloadString("http://icanhazip.com");
 
                 IPHostEntry host;
                 string localIP = "?";
@@ -109,7 +110,7 @@ namespace Information_Gatherer
                 int last = direction.LastIndexOf("</body>");
                 direction = direction.Substring(first, last - first);
 
-                richTextBox1.Text = "Your Public IP: "+externalip+"Your Local IP: "+localIP+"\n\nDouble check of Public IP: "+direction+"\nNOTE: This is done for certainty reasons! The method is different for greater accuracy."+"\n\n"+"If your IP is a IPv6 then check 'Whats my IP *If IPV6*' and none of the others!\nWARNING: Do not give your public or local IP to anyone!";
+                richTextBox1.Text = "Your Local IP: "+localIP+"\nPublic IP: "+direction+"\n\n"+"If your IP is a IPv6 then check 'Whats my IP *If IPV6*' and none of the others!\nWARNING: Do not give your public or local IP to anyone!";
             }
             else if (button1.Text == "Terminate Information")
             {
