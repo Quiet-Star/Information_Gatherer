@@ -6,8 +6,6 @@ button lists your Public and Local IP addresses -- lists the public IP twice -- 
 that of https://dnsleaktest.com and or https://ipleak.net - the recommended site on the app is https://dnsleaktest.com
 
 # How to use Information Gatherer?
-Initial Release of App:
-
 Button "Check if IP Matched What's My IP" - This button gatherers your Public IP and Local IP but outputs your Public IP twice in the app its called "Double Check of Public IP". The methods for both Public IP checks are different.
 
 Button "DNS Leak Test Recommended" - This button takes you to https://dnsleaktest.com and this site tests your DNS servers through a "Standard" and a "Extended" option Extended is Recommended. If this is showing anything related to your ISP you either do not have a VPN or your VPN is leaking DNS/IP results
