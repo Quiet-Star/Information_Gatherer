@@ -26,7 +26,3 @@ There is also a Ping Test on the app - it is automatic.
 It updates every second and it pings to https://speedtest.net - it was the best results out of the various sites I tested.
 The Ping will not work if you have no internet -- app will warn you on startup if Interface is not connected -- but will automatically
 start when you regain that connection.
-
-# Images
-![GitHub Logo](/images/Screenshot_1.png)
-![GitHub Logo](/images/Screenshot_2.png)
